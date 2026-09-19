@@ -1,0 +1,55 @@
+{
+  "name": "commandcode-token-metrics",
+  "version": "0.1.0",
+  "description": "Live tokens-per-second meter for Command Code, rendered in the footer status line.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Jash Jacob <jash1993@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jashjacob/commandcode-token-metrics.git"
+  },
+  "homepage": "https://github.com/jashjacob/commandcode-token-metrics#readme",
+  "bugs": {
+    "url": "https://github.com/jashjacob/commandcode-token-metrics/issues"
+  },
+  "keywords": [
+    "commandcode",
+    "commandcode-mod",
+    "cmd",
+    "mod",
+    "tps",
+    "tokens-per-second",
+    "throughput",
+    "benchmark"
+  ],
+  "commandcode": {
+    "mods": [
+      "./index.ts"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.ts",
+    "src",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.19"
+  },
+  "scripts": {
+    "test": "node --import tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "smoke": "node --import tsx scripts/smoke.mjs",
+    "ci": "sh scripts/ci.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.0"
+  }
+}
