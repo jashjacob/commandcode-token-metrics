@@ -46,7 +46,8 @@
     "test": "node --import tsx --test test/*.test.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "smoke": "node --import tsx scripts/smoke.mjs",
-    "ci": "sh scripts/ci.sh"
+    "ci": "sh scripts/ci.sh",
+    "prepublishOnly": "npm run ci"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

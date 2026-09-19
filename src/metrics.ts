@@ -382,9 +382,18 @@ export class TpsMeter {
 	prune(at: number = this.clock()): void {
 		const floor = at - this.config.rollingWindowMs
 		const first = this.samples[0]
-		if (first && first.at < floor) {
-			this.samples.splice(0, this.samples.length, ...this.samples.filter((s) => s.at >= floor))
+		if (first === undefined || first.at >= floor) return
+		// Trim the leading run in place. Spreading the survivors into `splice` built a
+		// call with one argument per sample, which overflows the stack somewhere above
+		// 65k samples; the window can only hold that many at absurd chunk rates, but the
+		// failure would land in the paint loop.
+		let cut = 1
+		let next = this.samples[cut]
+		while (next !== undefined && next.at < floor) {
+			cut += 1
+			next = this.samples[cut]
 		}
+		this.samples.splice(0, cut)
 	}
 
 	/** Current view: the frozen frame once settled, otherwise a live computation. */
