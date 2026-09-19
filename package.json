@@ -35,6 +35,7 @@
     "index.ts",
     "src",
     "types",
+    "docs",
     "README.md",
     "LICENSE"
   ],
