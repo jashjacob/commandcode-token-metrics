@@ -38,8 +38,15 @@ function fail(message) {
 
 const temp = mkdtempSync(join(tmpdir(), 'commandcode-token-metrics-smoke-'))
 
+// A nested npm inherits the caller's config, and `npm publish --dry-run` exports
+// dry_run, which would make this pack write no tarball at all.
+const npmEnv = {...process.env}
+for (const key of Object.keys(npmEnv)) {
+	if (key.toLowerCase() === 'npm_config_dry_run') delete npmEnv[key]
+}
+
 try {
-	const raw = execFileSync('npm', ['pack', '--json', '--pack-destination', temp], {cwd: process.cwd(), encoding: 'utf8'})
+	const raw = execFileSync('npm', ['pack', '--json', '--pack-destination', temp], {cwd: process.cwd(), encoding: 'utf8', env: npmEnv})
 	const [info] = JSON.parse(raw)
 	const files = info.files.map((entry) => entry.path)
 
