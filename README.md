@@ -1,5 +1,7 @@
 # commandcode-token-metrics
 
+[![npm](https://img.shields.io/npm/v/commandcode-token-metrics)](https://www.npmjs.com/package/commandcode-token-metrics)
+
 A live tokens-per-second meter for [Command Code](https://commandcode.ai), drawn in the footer under the input panel.
 
 ![The tokens-per-second meter in the Command Code footer, under the input panel](docs/footer.gif)
