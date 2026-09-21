@@ -54,6 +54,10 @@ cmd --mod-option vuColumns=20 --mod-option slowTps=15
 | `feedSummary` | `true` | Print a one-line summary when a run ends |
 | `statusLog` | *(unset)* | Debug: append every painted status line to this file |
 
+## Also for OpenCode
+
+The same meter exists for the OpenCode TUI: [`opencode-token-metrics`](https://www.npmjs.com/package/opencode-token-metrics).
+
 ## Development
 
 ```bash
