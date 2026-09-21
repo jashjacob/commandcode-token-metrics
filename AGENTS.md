@@ -12,8 +12,8 @@ GOAL: install commandcode-token-metrics into the user's Command Code setup.
 1. Confirm the mod loads first:  cmd --mod <path-to-project>
    A file that fails to import, exports no factory, or throws in its factory
    becomes a warning, never a crashed session, so a broken mod fails silently.
-2. Run: cmd mods add <path-to-project> -g    (user scope)
-   Or project scope by omitting -g.
+2. Run: cmd mods add npm:commandcode-token-metrics -g    (user scope)
+   Or project scope by omitting -g. From a checkout, a local path works too.
 3. Confirm: cmd mods list  (no load warnings).
 4. Tell the user to start a new session (or /reload). Mods load at startup;
    there is no in-place hot swap.

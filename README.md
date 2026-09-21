@@ -7,10 +7,12 @@ A live tokens-per-second meter for [Command Code](https://commandcode.ai), drawn
 ## Install
 
 ```bash
-cmd mods add /path/to/commandcode-token-metrics -g
+cmd mods add npm:commandcode-token-metrics -g
 ```
 
 Then start a new session, or run `/reload`. There is no build step; Command Code compiles the mod at load time.
+
+Drop `-g` to install for the current project only, or load a local checkout with `cmd --mod /path/to/commandcode-token-metrics`.
 
 ## What you get
 
